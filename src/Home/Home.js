@@ -6,9 +6,8 @@ import marsVideo from './media/mars.ogv'
 import swapiVideo from './media/swapi.ogv'
 import thegreenlink from './media/thegreenlink.mov'
 import jokesVideo from './media/starwarsjokes.ogv'
-import scrappingVideo from './media/scrappinggithub.ogv'
-
-
+import scrapingVideo from './media/scrappinggithub.ogv'
+import baffle from 'baffle'
 
 export default class Home extends Component{
     state = {
@@ -194,6 +193,13 @@ export default class Home extends Component{
             z: this.state.z + 1
         })
         const aeEnv = document.querySelector('#aemabit-env')
+        baffle(".change")
+            .set({
+                characters : '<▒▓▓< ▓▓<<▒ ▓▓<'
+            })
+            .start()
+            .reveal(4000)
+        
         aeEnv.classList.remove('hidden')
         aeEnv.style.zIndex = this.state.z
         document.querySelector('.env-view').classList.remove('hidden')
@@ -491,7 +497,7 @@ export default class Home extends Component{
 
                                         <div className="layer puppeteer" onClick={this.handlePuppeteer}>
                                             <i className="fas fa-angle-down"></i>
-                                            <span>Scrapping-Github</span>
+                                            <span>Scraping-Github</span>
                                         </div>
                                         <div id="pupp" className="sub-container hidden">
                                             <div className="sub-layer" onClick={this.showSnippetPupp}>
@@ -595,58 +601,58 @@ export default class Home extends Component{
                                 <div id="screen-mars" className="screen hidden">
                                     {   
                                         this.state.renderMsgMars ? (
-                                        <div className="wrapper-screen">
+                                            <div className="wrapper-screen">
                                             <div className="numbers">
-                                                <Typist cursor={{ hideWhenDone: true }}>
+                                            <Typist cursor={{ hideWhenDone: true }}>
                                                     <Typist.Delay ms={0} />
                                                     <div>1</div>
-                                                    <Typist.Delay ms={600} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>2</div>
-                                                    <Typist.Delay ms={800} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>3</div>
-                                                    <Typist.Delay ms={1000} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>4</div>
                                                     <Typist.Delay ms={0} />
                                                     <div>5</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>6</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>7</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>8</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>9</div>                             	
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>10</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>11</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>12</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>13</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>14</div>
                                                 </Typist>
-                                            </div>
+                                                </div>
                                             <Typist 
                                                 avgTypingDelay={20} 
                                                 cursor={{ hideWhenDone: true }}
                                             >
-                                                <span className="code-snippet">
-                                                    import React from 'react'<br></br>
-                                                    import './App.css'<br></br>
-                                                    import MarsProject from './src/MarsProject'
+                                                <div className="code-snippet">
+                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
+                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
+                                                    <span><span id="blue">import</span> MarsProject from <span id="yellow">'./src/NasaApi'</span></span><br></br>
                                                     <br></br>
                                                     <br></br>
-                                                    {`const App = () => (`}                                     <br></br>                                               	
-                                                    &nbsp;&nbsp;{`return (`}                                    <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<MarsProject />`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          <br></br>
-                                                    &nbsp;&nbsp;{`)`}                                           <br></br>
-                                                    {`)`}                                                       <br></br><br></br>
-                                                    export default App                                          <br></br><br></br>
-                                                </span>
+                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
+                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<MarsProject />`}    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
+                                                    <span id="yellow">{`)`}                                                       </span><br></br>
+                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
+                                                </div>
                                             </Typist>
                                         </div>
                                         ) :null
@@ -686,31 +692,31 @@ export default class Home extends Component{
                                             <Typist cursor={{ hideWhenDone: true }}>
                                                     <Typist.Delay ms={0} />
                                                     <div>1</div>
-                                                    <Typist.Delay ms={600} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>2</div>
-                                                    <Typist.Delay ms={800} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>3</div>
-                                                    <Typist.Delay ms={1000} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>4</div>
                                                     <Typist.Delay ms={0} />
                                                     <div>5</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>6</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>7</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>8</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>9</div>                             	
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>10</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>11</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>12</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>13</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>14</div>
                                                 </Typist>
                                                 </div>
@@ -718,21 +724,21 @@ export default class Home extends Component{
                                                 avgTypingDelay={20} 
                                                 cursor={{ hideWhenDone: true }}
                                             >
-                                                <span className="code-snippet">
-                                                    import React from 'react'<br></br>
-                                                    import './App.css'<br></br>
-                                                    import TheGreenLink from './src/TheGreenLink'
+                                                <div className="code-snippet">
+                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
+                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
+                                                    <span><span id="blue">import</span> TheGreenLink from <span id="yellow">'./src/TheGreenLink'</span></span><br></br>
                                                     <br></br>
                                                     <br></br>
-                                                    {`const App = () => (`}                                     <br></br>                                               	
-                                                    &nbsp;&nbsp;{`return (`}                                    <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<TheGreenLink />`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          <br></br>
-                                                    &nbsp;&nbsp;{`)`}                                           <br></br>
-                                                    {`)`}                                                       <br></br><br></br>
-                                                    export default App                                          <br></br><br></br>
-                                                </span>
+                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
+                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<TheGreenLink />`}    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
+                                                    <span id="yellow">{`)`}                                                       </span><br></br>
+                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
+                                                </div>
                                             </Typist>
                                         </div>
                                         ) :null
@@ -765,36 +771,36 @@ export default class Home extends Component{
                                 <div id="screen-swapi" className="screen hidden">
                                 {   
                                         this.state.renderMsgSwapi ? (
-                                        <div className="wrapper-screen">
+                                            <div className="wrapper-screen">
                                             <div className="numbers">
                                             <Typist cursor={{ hideWhenDone: true }}>
                                                     <Typist.Delay ms={0} />
                                                     <div>1</div>
-                                                    <Typist.Delay ms={600} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>2</div>
-                                                    <Typist.Delay ms={800} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>3</div>
-                                                    <Typist.Delay ms={1000} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>4</div>
                                                     <Typist.Delay ms={0} />
                                                     <div>5</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>6</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>7</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>8</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>9</div>                             	
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>10</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>11</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>12</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>13</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>14</div>
                                                 </Typist>
                                                 </div>
@@ -802,21 +808,21 @@ export default class Home extends Component{
                                                 avgTypingDelay={20} 
                                                 cursor={{ hideWhenDone: true }}
                                             >
-                                                <span className="code-snippet">
-                                                    import React from 'react'<br></br>
-                                                    import './App.css'<br></br>
-                                                    import SwapiProject from './src/StarWarsSwapi'
+                                                <div className="code-snippet">
+                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
+                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
+                                                    <span><span id="blue">import</span> SwapiProject from <span id="yellow">'./src/SwapiApi'</span></span><br></br>
                                                     <br></br>
                                                     <br></br>
-                                                    {`const App = () => (`}                                     <br></br>                                               	
-                                                    &nbsp;&nbsp;{`return (`}                                    <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<SwapiProject />`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          <br></br>
-                                                    &nbsp;&nbsp;{`)`}                                           <br></br>
-                                                    {`)`}                                                       <br></br><br></br>
-                                                    export default App                                          <br></br><br></br>
-                                                </span>
+                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
+                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<SwapiProject />`}    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
+                                                    <span id="yellow">{`)`}                                                       </span><br></br>
+                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
+                                                </div>
                                             </Typist>
                                         </div>
                                         ) :null
@@ -850,58 +856,58 @@ export default class Home extends Component{
                                 <div id="screen-st-jokes" className="screen hidden">
                                 {   
                                         this.state.renderMsgJokes ? (
-                                        <div className="wrapper-screen">
+                                            <div className="wrapper-screen">
                                             <div className="numbers">
                                             <Typist cursor={{ hideWhenDone: true }}>
                                                     <Typist.Delay ms={0} />
                                                     <div>1</div>
-                                                    <Typist.Delay ms={600} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>2</div>
-                                                    <Typist.Delay ms={800} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>3</div>
-                                                    <Typist.Delay ms={1000} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>4</div>
                                                     <Typist.Delay ms={0} />
                                                     <div>5</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>6</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>7</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>8</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>9</div>                             	
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>10</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>11</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>12</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>13</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>14</div>
                                                 </Typist>
-                                            </div>
+                                                </div>
                                             <Typist 
                                                 avgTypingDelay={20} 
                                                 cursor={{ hideWhenDone: true }}
                                             >
-                                                <span className="code-snippet">
-                                                    import React from 'react'<br></br>
-                                                    import './App.css'<br></br>
-                                                    import StarWarsJokes from './src/StarwarsJokesApi'
+                                                <div className="code-snippet">
+                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
+                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
+                                                    <span><span id="blue">import</span> StarWarsProject from <span id="yellow">'./src/STWJokesApi'</span></span><br></br>
                                                     <br></br>
                                                     <br></br>
-                                                    {`const App = () => (`}                                     <br></br>                                               	
-                                                    &nbsp;&nbsp;{`return (`}                                    <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<StarWarsJokes />`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          <br></br>
-                                                    &nbsp;&nbsp;{`)`}                                           <br></br>
-                                                    {`)`}                                                       <br></br><br></br>
-                                                    export default App                                          <br></br><br></br>
-                                                </span>
+                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
+                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<StarWarsProject />`}    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
+                                                    <span id="yellow">{`)`}                                                       </span><br></br>
+                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
+                                                </div>
                                             </Typist>
                                         </div>
                                         ) :null
@@ -935,58 +941,58 @@ export default class Home extends Component{
                                 <div id="screen-puppeteer" className="screen hidden">
                                 {   
                                         this.state.renderMsgGithub? (
-                                        <div className="wrapper-screen">
+                                            <div className="wrapper-screen">
                                             <div className="numbers">
                                             <Typist cursor={{ hideWhenDone: true }}>
                                                     <Typist.Delay ms={0} />
                                                     <div>1</div>
-                                                    <Typist.Delay ms={600} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>2</div>
-                                                    <Typist.Delay ms={800} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>3</div>
-                                                    <Typist.Delay ms={1000} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>4</div>
                                                     <Typist.Delay ms={0} />
                                                     <div>5</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>6</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>7</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>8</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>9</div>                             	
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>10</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={500} />
                                                     <div>11</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>12</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>13</div>
-                                                    <Typist.Delay ms={900} />
+                                                    <Typist.Delay ms={700} />
                                                     <div>14</div>
                                                 </Typist>
-                                            </div>
+                                                </div>
                                             <Typist 
                                                 avgTypingDelay={20} 
                                                 cursor={{ hideWhenDone: true }}
                                             >
-                                                <span className="code-snippet">
-                                                    import React from 'react'<br></br>
-                                                    import './App.css'<br></br>
-                                                    import ScrappingGithub from './src/introPuppeteer'
+                                                <div className="code-snippet">
+                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
+                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
+                                                    <span><span id="blue">import</span> ScrapingGithub from <span id="yellow">'./src/NodeAndPuppeteer'</span></span><br></br>
                                                     <br></br>
                                                     <br></br>
-                                                    {`const App = () => (`}                                     <br></br>                                               	
-                                                    &nbsp;&nbsp;{`return (`}                                    <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<ScrappingGithub />`}     <br></br>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          <br></br>
-                                                    &nbsp;&nbsp;{`)`}                                           <br></br>
-                                                    {`)`}                                                       <br></br><br></br>
-                                                    export default App                                          <br></br><br></br>
-                                                </span>
+                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
+                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<ScrapingGithub />`}    </span><br></br>
+                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
+                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
+                                                    <span id="yellow">{`)`}                                                       </span><br></br>
+                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
+                                                </div>
                                             </Typist>
                                         </div>
                                         ) :null
@@ -1004,7 +1010,7 @@ export default class Home extends Component{
                                             <div className="end-video">
                                                 <ReactPlayer
                                                     className='react-player'
-                                                    url={scrappingVideo}
+                                                    url={scrapingVideo}
                                                     width='50%'
                                                     height='50%'
                                                     controls={true}
@@ -1176,40 +1182,187 @@ export default class Home extends Component{
                                 </div>
                             </div>
                             <div>
-                                <div id="pkg-json" className="screen hidden">
+                            <div id="pkg-json"className="screen hidden">
+                                <div className="wrapper-json">
+                                <div className="numbers">
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                        <span>6</span>
+                                        <span>7</span>
+                                        <span>8</span>
+                                        <span>9</span>
+                                        <span>10</span>
+                                        <span>11</span>
+                                        <span>12</span>
+                                        <span>13</span>
+                                        <span>14</span>
+                                        <span>15</span>
+                                        <span>16</span>
+                                        <span>17</span>
+                                        <span>18</span>
+                                        <span>19</span>
+                                        <span>20</span>
+                                        <span>21</span>
+                                        <span>22</span>
+                                        <span>23</span>
+                                        <span>24</span>
+                                        <span>25</span>
+                                        <span>26</span>
+                                        <span>27</span>
+                                        <span>28</span>
+                                        <span>29</span>
+                                        <span>30</span>
+                                        <span>31</span>
+                                        <span>32</span>
+                                        <span>33</span>
+                                        <span>34</span>
+                                        <span>35</span>
+                                        <span>36</span>
+                                        <span>37</span>
+                                        <span>38</span>
+                                        <span>39</span>
+                                        <span>40</span>
+                                        <span>41</span>
+                                        <span>42</span>
+                                        <span>43</span>
+                                        <span>44</span>
+                                        <span>45</span>
+                                        <span>46</span>
+                                        <span>47</span>
+                                        <span>48</span>
+                                        <span>49</span>
+                                    </div>
                                     <div className="json-text">
-                                        <span id="orange">{`{`}                                                                     </span>                                 
-                                        <span id="blue">&nbsp;&nbsp;{`"name": "client",` }                                        </span>                       
-                                        <span id="blue">&nbsp;&nbsp;{`"version": "0.1.0",`}                                       </span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"private": true,`}                                          </span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"dependencies": {`}                                         </span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"@testing-library/jest-dom": "^4.2.4",`}      </span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"@testing-library/react": "^9.3.2",`}         </span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"@testing-library/user-event": "^7.1.2",`}    </span> 
-                                        <span id="orange">&nbsp;&nbsp;{`},`}                                                        </span> 
-                                        <span>&nbsp;&nbsp;{`"scripts": {`}                                              </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start": "react-scripts start",`}             </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{ ` "build": "react-scripts build",`}             </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{ ` "test": "react-scripts test",`}               </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{ ` "eject": "react-scripts eject"`}              </span> 
-                                        <span>&nbsp;&nbsp;{`},`}                                                        </span> 
-                                        <span>&nbsp;&nbsp;{`"browserslist": {`}                                         </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;{ ` "production": [`}                             </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{    `">0.2%",`}                      </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not dead",`}                   </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not op_mini all"`}             </span> 
-                                        <span>&nbsp;&nbsp;{ `],`}                                                       </span> 
-                                        <span>&nbsp;&nbsp;{  `"development": [`}                                        </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{    `"last 1 chrome version",`}      </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{    `"last 1 firefox version",`}     </span> 
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{    `"last 1 safari version"`}       </span> 
-                                        <span>&nbsp;&nbsp;{  `]`}                                                       </span> 
-                                        <span>{`}`}                                                                     </span> 
+                                        <span id="orange">{`{`}</span>
+                                        <span id="blue">&nbsp;&nbsp;{`"author"`}<span id="orange">{`"Andres Mejias",`}</span></span>                                
+                                        <span id="blue">&nbsp;&nbsp;{`"name":`}<span id="orange">{`"client",` }</span></span>                       
+                                        <span id="blue">&nbsp;&nbsp;{`"version":`}<span id="orange">{`"0.1.0",`}</span></span> 
+                                        <span id="blue">&nbsp;&nbsp;{`"private":`}<span id="orange">{`true,`}</span></span> 
+                                        <span id="blue">&nbsp;&nbsp;{`"dependencies":`}<span id="blue">{`{`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"react":`}<span id="yellow">{`"^16.12.0",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"express":`}<span id="yellow">{`"^4.16.3",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"react-dom":`}<span id="yellow">{`"^16.12.0",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"connect-history-api-fallback":`}<span id="yellow">{` "^1.5.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"copy-webpack-plugin":`}<span id="yellow">{` "^4.5.1",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"css-loader":`}<span id="yellow">{` "^0.28.11",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"express":`}<span id="yellow">{` "^4.16.3",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"extract-text-webpack-plugin":`}<span id="yellow">{` "^4.0.0-beta.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"html-webpack-plugin":`}<span id="yellow">{` "^3.1.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"mongoose":`}<span id="yellow">{` "^5.0.11",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"node-sass": `}<span id="yellow">{`"^4.7.2",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"nodemon":`}<span id="yellow">{` "^1.17.2",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"postcss-loader":`}<span id="yellow">{` "^2.1.3",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react":`}<span id="yellow">{` "^16.2.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-dom":`}<span id="yellow">{` "^16.2.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-hot-loader":`}<span id="yellow">{` "^4.0.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-router":`}<span id="yellow">{` "^4.2.0",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-router-dom":`}<span id="yellow">{` "^4.2.2",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"sass-loader":`}<span id="yellow">{` "^6.0.7",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"style-loader":`}<span id="yellow">{` "^0.20.3",`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"webpack":`}<span id="yellow">{` "^4.2.0",`}</span></span>
+
+                                        <span id="blue">&nbsp;&nbsp;{`},`}</span> 
+                                        <span id="blue">&nbsp;&nbsp;{`"scripts":`}<span id="blue">{`{`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run introMars.js",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run introGL.js",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run starWars.js",`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run starWarsJokes.js"`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run puppeteer.js"`}</span></span>
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "eject":`}<span id="yellow">{`"aemabit eject"`}</span></span>
+                                        <span id="blue">&nbsp;&nbsp;{`},`}</span> 
+                                        <span id="blue">&nbsp;&nbsp;{`"browserslist":`}<span id="blue">{`{`}</span></span> 
+                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "production":`}<span id="blue">{`[`}</span></span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` ">0.2%",`}</span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not dead",`}</span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not op_mini all"`}</span> 
+                                        <span id="blue">&nbsp;&nbsp;{ `],`}</span> 
+                                        <span id="blue">&nbsp;&nbsp;{  `"development":`}<span id="blue">{`[`}</span></span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 chrome version",`}</span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 firefox version",`}</span> 
+                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 safari version"`}</span> 
+                                        <span id="blue">&nbsp;&nbsp;{  `]`}</span> 
+                                        <span id="orange">{`}`}</span> 
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <div id="aemabit-env" className="screen hidden">.env</div>
+                                <div id="aemabit-env" className="screen hidden">
+                                <div className="wrapper-json">
+                                <div className="numbers">
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                        <span>6</span>
+                                        <span>7</span>
+                                        <span>8</span>
+                                        <span>9</span>
+                                        <span>10</span>
+                                        <span>11</span>
+                                        <span>12</span>
+                                        <span>13</span>
+                                        <span>14</span>
+                                        <span>15</span>
+                                        <span>16</span>
+                                        <span>17</span>
+                                        <span>18</span>
+                                        <span>19</span>
+                                        <span>20</span>
+                                        <span>21</span>
+                                        <span>22</span>
+                                        <span>23</span>
+                                        <span>24</span>
+                                        <span>25</span>
+                                        <span>26</span>
+                                        <span>27</span>
+                                        <span>28</span>
+                                        <span>29</span>
+                                        <span>30</span>
+                                        <span>31</span>
+                                        <span>32</span>
+                                        <span>33</span>
+                                    </div>
+                                    <div className="env-content">
+                                        <span>Hi, my name is <span className="sm-ttl">Andres Mejias</span></span>
+                                        <span className="change sm-ttl">&nbsp;&nbsp;I design and develop webapps</span>
+                                        <br></br>
+                                        <br></br>
+                                        <span className="sm-ttl">{`// I'm ambitious and love new challenges :)`}</span>
+                                        <span className="sm-ttl">{`// My vast variety of skills is continuously expanding.`}</span>
+                                        <br></br>
+                                        <br></br>
+                                        <span className="sm-ttl">Education {`= [`} </span>
+                                        <span id="yellow">&nbsp;&nbsp;{`{`} '2019' : Wyncode Academy - Full Stack Web Developer {`},`} </span>
+                                        <span id="yellow">&nbsp;&nbsp;{`{`} '2015' : Technological University Institute Americo Vespucio - Information Technology {`}`} </span>
+                                        <span id="red">{`]`}</span>
+                                        <br></br>
+                                        <br></br>
+                                        <span className="sm-ttl">{`Skills = [`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Passport.js',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'HTML/CSS/JS',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Node.js',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'React.js',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Express.js',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'MongoDB',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'PostgreSQL',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Puppeteer',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Bootstrap',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'npm/yarn',  `}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'GIT',`}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Ruby on Rails', `}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Photoshop', `}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'Illustrator', `}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'After Effects', `}</span>
+                                        <span id="yellow">&nbsp;&nbsp;{`'UX/UI'`}</span>
+                                        <span id="red">{`] `}</span>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                         
                         </div>
