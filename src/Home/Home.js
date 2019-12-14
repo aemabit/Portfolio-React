@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import './home.css'
 import Typist from 'react-typist';
 import ReactPlayer from 'react-player'
-import marsVideo from './media/mars.ogv'
-import swapiVideo from './media/swapi.ogv'
-import thegreenlink from './media/thegreenlink.mov'
-import jokesVideo from './media/starwarsjokes.ogv'
-import scrapingVideo from './media/scrappinggithub.ogv'
 import baffle from 'baffle'
 
 export default class Home extends Component{
@@ -670,7 +665,7 @@ export default class Home extends Component{
                                                 <div className="end-video">
                                                     <ReactPlayer
                                                         className='react-player'
-                                                        url={marsVideo}
+                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/mars.ogv"
                                                         width='50%'
                                                         height='50%'
                                                         controls={true}
@@ -756,7 +751,7 @@ export default class Home extends Component{
                                                 <div className="end-video">
                                                     <ReactPlayer
                                                         className='react-player'
-                                                        url={thegreenlink}
+                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/thegreenlink.mov"
                                                         width='50%'
                                                         height='50%'
                                                         controls={true}
@@ -840,7 +835,7 @@ export default class Home extends Component{
                                                 <div className="end-video">
                                                     <ReactPlayer
                                                         className='react-player'
-                                                        url={swapiVideo}
+                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/swapi.ogv"
                                                         width='50%'
                                                         height='50%'
                                                         controls={true}
@@ -925,7 +920,7 @@ export default class Home extends Component{
                                                 <div className="end-video">
                                                     <ReactPlayer
                                                         className='react-player'
-                                                        url={jokesVideo}
+                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/starwarsjokes.ogv"
                                                         width='50%'
                                                         height='50%'
                                                         controls={true}
@@ -1010,7 +1005,7 @@ export default class Home extends Component{
                                             <div className="end-video">
                                                 <ReactPlayer
                                                     className='react-player'
-                                                    url={scrapingVideo}
+                                                    url="https://aemabitfolder.sfo2.digitaloceanspaces.com/scrapinggithub.ogv"
                                                     width='50%'
                                                     height='50%'
                                                     controls={true}
