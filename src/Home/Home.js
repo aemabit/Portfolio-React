@@ -19,8 +19,34 @@ export default class Home extends Component{
         videojoke: false,
         videogith: false,
         activeSubmenu: true,
-        commandValue: ''
+        commandValue: '',
+        code: [],
+        terminal: true
     }
+
+    handleChange = (evt) => {
+        this.state.code.push(evt.key)
+        if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Shift" && this.state.code[2] === "~"){
+            this.closeTerminal()
+        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "o"){
+            document.querySelector('.second-lateral-bar').classList.toggle('hidden')
+        }else if(this.state.code.length ===2 && this.state.code[0] === "Control" && this.state.code[1] !== "Shift" && this.state.code[1] !== "Alt" ){
+            this.setState({ code: [] })
+        }else if( this.state.code[0] !== "Control"){
+            this.setState({ code: [] })
+        }else if( this.state.code.length > 3){
+            this.setState({ code: [] })
+        }else{
+            console.log(this.state.code)
+        }
+    }
+
+    clearTerminal = () => {
+        document.querySelector(".command-box").innerHTML = ""
+    } 
+    closeTerminal = () => {
+        this.setState({ terminal: !this.state.terminal})
+    } 
 
     handleSubMenu = () => {
         this.setState({ activeSubmenu: !this.state.activeSubmenu })
@@ -1361,7 +1387,11 @@ export default class Home extends Component{
                             </div>
                         
                         </div>
+
+                        {
+                                this.state.terminal? (
                         <div className="box-terminal">
+                                
                             <div className="bar-console">
                                 <div className="selector-terminal">
                                     <span>TERMINAL</span>
@@ -1370,10 +1400,10 @@ export default class Home extends Component{
                                     <div className="box-node">
                                         <span>1:node</span>
                                     </div>
-                                    <div className="kill-terminal">
+                                    <div className="kill-terminal" onClick={this.clearTerminal}>
                                         <i className="fas fa-trash-alt"></i>
                                     </div>
-                                    <div className="close-terminal">
+                                    <div className="close-terminal" onClick={this.closeTerminal}>
                                         <i className="far fa-times-circle"></i>
                                     </div>
                                 </div>
@@ -1395,10 +1425,19 @@ export default class Home extends Component{
                                     </form>
                                 </div>
                             </div>
+                            
                         </div>
+                                ):null
+                            }
+                    
                     </div>
                 </div>
             </div>
         )
     }
+    
+    componentDidMount(){
+        document.addEventListener("keydown", this.handleChange)
+    }
+
 }

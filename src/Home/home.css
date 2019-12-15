@@ -177,10 +177,9 @@
 }
 
 .box-screen{
-    height: 72%;
+    height: 100%;
     width: 100%;
     position: relative;
-    border-bottom: 1px solid #000000;
 }
 
 .screen,
@@ -203,9 +202,10 @@
 }
 
 .box-terminal{
-    height: 28%;
+    height: 40%;
     width: 100%;
     background-color:rgb(24,24,24);
+    border-top: 1px solid #000000;
 }
 
 .bar-active {
