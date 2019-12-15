@@ -12,7 +12,6 @@ export default class Home extends Component{
         renderMsgSwapi: false,
         renderMsgJokes: false,
         renderMsgGithub: false,
-        rendeReadmeMd: false,
         videoMars: false,
         videothgl: false,
         videoswpi: false,
@@ -30,6 +29,16 @@ export default class Home extends Component{
             this.closeTerminal()
         }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "o"){
             document.querySelector('.second-lateral-bar').classList.toggle('hidden')
+        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "g"){
+            window.open(
+                'https://github.com/aemabit',
+                '_blank' 
+              );
+        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "l"){
+            window.open(
+                'https://www.linkedin.com/in/andres-mejias/',
+                '_blank' 
+              );
         }else if(this.state.code.length ===2 && this.state.code[0] === "Control" && this.state.code[1] !== "Shift" && this.state.code[1] !== "Alt" ){
             this.setState({ code: [] })
         }else if( this.state.code[0] !== "Control"){
@@ -192,9 +201,9 @@ export default class Home extends Component{
     showReadme = () => {
         this.setState({
             z: this.state.z + 1,
-            rendeReadmeMd: true
         })
         const readme = document.querySelector('#readme')
+        readme.classList.remove('hidden')
         readme.style.zIndex = this.state.z
         document.querySelector('.readme-view').classList.remove('hidden')
     }
@@ -249,9 +258,7 @@ export default class Home extends Component{
         document.querySelector('.tag-swapi').classList.add('hidden')
     }
     closeReadme = () =>{
-        this.setState({
-            rendeReadmeMd: false
-        })
+        document.querySelector('#readme').classList.add('hidden')
         document.querySelector('.readme-view').classList.add('hidden')
     }
     closeJson = () =>{
@@ -616,8 +623,7 @@ export default class Home extends Component{
                                 <i onClick={this.closePlayerPupp} className="fas fa-times"></i>
                             </div>
                         </div> 
-                        <div className="box-screen">
-
+                        <div className="box-screen">   
                             <div>
                                 <div id="screen-mars" className="screen hidden">
                                     {   
@@ -1045,10 +1051,8 @@ export default class Home extends Component{
                             </div>
 
                             <div>
-                                <div id="readme" className="screen">
-                                    {
-                                    this.state.rendeReadmeMd ? (
-                                    <div id="readme">
+                                <div id="readme" className="screen hidden">
+                                    <div className="wrapper-readme">
                                         <div className="numbers">
                                             <span>1</span>
                                             <span>2</span>
@@ -1198,8 +1202,6 @@ export default class Home extends Component{
                                             <br></br>
                                         </div>
                                     </div>
-                                    ): null
-                                    }
                                 </div>
                             </div>
                             <div>
@@ -1385,9 +1387,48 @@ export default class Home extends Component{
                                 </div>
                                 </div>
                             </div>
-                        
+                        <div className="wrapper-welcome">
+                        <div className="container-welcome screen">
+                            <div className="welcome-to">
+                                <span>Welcome to Aemabit Studio Code</span>
+                                <h4>by: Andres Mejias</h4>
+                                <img src="https://aemabitfolder.sfo2.digitaloceanspaces.com/MejiasAndres.png" alt="Andres Mejias"/>
+                            </div>
+                            <div className="command-ref">
+                                <span>Open and Close Terminal</span>
+                                    <div className="guideC">
+                                        <span className="simbol">Ctrl</span> <span>+</span>
+                                        <span className="simbol">Shift</span> <span>+</span>
+                                        <span className="simbol">~</span>
+                                    </div>
+                            </div>
+                            <div className="command-ref">
+                                <span>Open Explorer Nav</span>
+                                <div className="guideC">
+                                    <span className="simbol">Ctrl</span> <span>+</span>
+                                    <span className="simbol">Alt</span> <span>+</span>
+                                    <span className="simbol">O</span> 
+                                </div>
+                            </div>
+                            <div className="command-ref">
+                                <span>Open Andres Mejias Github</span>
+                                    <div className="guideC">
+                                        <span className="simbol">Ctrl</span> <span>+</span>
+                                        <span className="simbol">Alt</span> <span>+</span>
+                                        <span className="simbol">G</span> 
+                                    </div>
+                            </div>
+                            <div className="command-ref">
+                                <span>Open Andres Mejias Linkedin</span>
+                                    <div className="guideC">
+                                        <span className="simbol">Ctrl</span> <span>+</span>
+                                        <span className="simbol">Alt</span> <span>+</span>
+                                        <span className="simbol">L</span> 
+                                    </div>
+                            </div>
+                        </div>   
                         </div>
-
+                    </div>
                         {
                                 this.state.terminal? (
                         <div className="box-terminal">

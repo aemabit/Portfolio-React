@@ -211,7 +211,7 @@
 .bar-active {
     min-width: 0%;
     max-width: 100%;
-    height: 35px;
+    min-height: 34px;
     color: rgba(255, 255, 255, 0.75);
     display: flex;
     justify-content: flex-start;
@@ -410,10 +410,14 @@ input[type="text"]#theInput:focus {
 /* README */
 
 #readme{
-    font-size: 15px;
     overflow: auto;
-    padding: 1;
+}
+
+.wrapper-readme {
     display: flex;
+    font-size: 15px;
+    overflow: hidden;
+    padding: 1;
     justify-content: flex-start;
 }
 
@@ -465,4 +469,58 @@ input[type="text"]#theInput:focus {
 .sm-ttl{
     font-weight: bold;
     color: rgb(223, 91, 113);
+}
+
+.wrapper-welcome{
+    overflow: hidden;
+}
+
+.container-welcome{
+    overflow: auto;
+}
+
+.welcome-to {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.welcome-to span:nth-child(1){
+    font-size: 35px;
+}
+
+.welcome-to img {
+    width: 300px;
+    margin: 0 0 20px 0;
+    border-radius: 2px;
+}
+
+.command-ref{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin: 8px;
+    color: rgba(202, 202, 202, 0.897)
+}
+
+.simbol{
+    padding: 4px;
+    background-color: rgba(73, 73, 73, 0.75);
+    color: #ffffff;
+    font-size: 12px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid rgba(63, 63, 63, 0.75);
+
+}
+
+.guideC{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    width: 48%;
+    align-items: center;
 }
