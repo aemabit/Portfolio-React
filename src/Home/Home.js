@@ -1,10 +1,21 @@
 import React, { Component } from 'react'
 import './home.css'
-import Typist from 'react-typist';
-import ReactPlayer from 'react-player'
 import baffle from 'baffle'
+import SecondLateralBar from './components/secondBar'
+import ActiveBar from './components/activeBar'
+import Mars from './components/viewMars'
+import GreenLink from './components/viewGreenLink';
+import Swapi from './components/viewSwapi'
+import Jokes from './components/viewJokes'
+import Scraping from './components/viewPuppeteer';
+import MyJson from './components/viewPkgJson'
+import MyEnv from './components/viewEnv'
+import Welcome from './components/viewWelcome'
+import MyTerminal from './components/terminal'
+import MyReadme from './components/ViewReadme'
 
-export default class Home extends Component{
+
+export default class Home extends Component {
     state = {
         z: 2,
         renderMsgMars: false,
@@ -25,37 +36,37 @@ export default class Home extends Component{
 
     handleChange = (evt) => {
         this.state.code.push(evt.key)
-        if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Shift" && this.state.code[2] === "~"){
+        if (this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Shift" && this.state.code[2] === "~") {
             this.closeTerminal()
-        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "o"){
+        } else if (this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "o") {
             document.querySelector('.second-lateral-bar').classList.toggle('hidden')
-        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "g"){
+        } else if (this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "g") {
             window.open(
                 'https://github.com/aemabit',
-                '_blank' 
-              );
-        }else if( this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "l"){
+                '_blank'
+            );
+        } else if (this.state.code.length === 3 && this.state.code[0] === "Control" && this.state.code[1] === "Alt" && this.state.code[2] === "l") {
             window.open(
                 'https://www.linkedin.com/in/andres-mejias/',
-                '_blank' 
-              );
-        }else if(this.state.code.length ===2 && this.state.code[0] === "Control" && this.state.code[1] !== "Shift" && this.state.code[1] !== "Alt" ){
+                '_blank'
+            );
+        } else if (this.state.code.length === 2 && this.state.code[0] === "Control" && this.state.code[1] !== "Shift" && this.state.code[1] !== "Alt") {
             this.setState({ code: [] })
-        }else if( this.state.code[0] !== "Control"){
+        } else if (this.state.code[0] !== "Control") {
             this.setState({ code: [] })
-        }else if( this.state.code.length > 3){
+        } else if (this.state.code.length > 3) {
             this.setState({ code: [] })
-        }else{
-            console.log(this.state.code)
+        } else {
+            return
         }
     }
 
     clearTerminal = () => {
         document.querySelector(".command-box").innerHTML = ""
-    } 
+    }
     closeTerminal = () => {
-        this.setState({ terminal: !this.state.terminal})
-    } 
+        this.setState({ terminal: !this.state.terminal })
+    }
 
     handleSubMenu = () => {
         this.setState({ activeSubmenu: !this.state.activeSubmenu })
@@ -140,14 +151,14 @@ export default class Home extends Component{
     showSnippetPupp = () => {
         this.setState({
             z: this.state.z + 1,
-            renderMsgGithub : true
+            renderMsgGithub: true
         })
         const screenPupp = document.querySelector('#screen-puppeteer')
         screenPupp.classList.remove('hidden')
         screenPupp.style.zIndex = this.state.z
         document.querySelector('.tag-pupp').classList.remove('hidden')
     }
-    
+
     showVideoPupp = () => {
         this.setState({
             z: this.state.z + 1
@@ -225,11 +236,11 @@ export default class Home extends Component{
         const aeEnv = document.querySelector('#aemabit-env')
         baffle(".change")
             .set({
-                characters : '<▒▓▓< ▓▓<<▒ ▓▓<'
+                characters: '<▒▓▓< ▓▓<<▒ ▓▓<'
             })
             .start()
             .reveal(4000)
-        
+
         aeEnv.classList.remove('hidden')
         aeEnv.style.zIndex = this.state.z
         document.querySelector('.env-view').classList.remove('hidden')
@@ -237,62 +248,62 @@ export default class Home extends Component{
 
     /* CLOSE VIEWS */
 
-    closeGl = () =>{
+    closeGl = () => {
         document.querySelector('#screen-greenlink').classList.add('hidden')
         document.querySelector('.tag-gl').classList.add('hidden')
     }
-    closeJokes = () =>{
+    closeJokes = () => {
         document.querySelector('#screen-st-jokes').classList.add('hidden')
         document.querySelector('.tag-jokes').classList.add('hidden')
     }
-    closeMars = () =>{
+    closeMars = () => {
         document.querySelector('#screen-mars').classList.add('hidden')
-        document.querySelector('.tag-mars').classList.add('hidden')  
+        document.querySelector('.tag-mars').classList.add('hidden')
     }
-    closePupp = () =>{
+    closePupp = () => {
         document.querySelector('#screen-puppeteer').classList.add('hidden')
         document.querySelector('.tag-pupp').classList.add('hidden')
     }
-    closeSwapi = () =>{
+    closeSwapi = () => {
         document.querySelector('#screen-swapi').classList.add('hidden')
         document.querySelector('.tag-swapi').classList.add('hidden')
     }
-    closeReadme = () =>{
+    closeReadme = () => {
         document.querySelector('#readme').classList.add('hidden')
         document.querySelector('.readme-view').classList.add('hidden')
     }
-    closeJson = () =>{
+    closeJson = () => {
         document.querySelector('#pkg-json').classList.add('hidden')
         document.querySelector('.json-view').classList.add('hidden')
     }
-    closeEnv = () =>{
+    closeEnv = () => {
         document.querySelector('#aemabit-env').classList.add('hidden')
         document.querySelector('.env-view').classList.add('hidden')
     }
 
-    closePlayerGl = () =>{
+    closePlayerGl = () => {
         document.querySelector('#player-greenlink').classList.add('hidden')
         document.querySelector('.tag-video-gl').classList.add('hidden')
     }
-    closePlayerJokes = () =>{
+    closePlayerJokes = () => {
         document.querySelector('#player-st-jokes').classList.add('hidden')
         document.querySelector('.tag-video-jokes').classList.add('hidden')
     }
-    closePlayerMars = () =>{
+    closePlayerMars = () => {
         document.querySelector('#player-mars').classList.add('hidden')
         document.querySelector('.tag-video-mars').classList.add('hidden')
     }
-    closePlayerPupp = () =>{
+    closePlayerPupp = () => {
         document.querySelector('#player-puppeteer').classList.add('hidden')
         document.querySelector('.tag-video-pupp').classList.add('hidden')
     }
-    closePlayerSwapi = () =>{
+    closePlayerSwapi = () => {
         document.querySelector('#player-swapi').classList.add('hidden')
         document.querySelector('.tag-video-swapi').classList.add('hidden')
     }
 
     /* OPEN VIDEOS */
-    
+
     showSwapiVideo = () => {
         this.setState({
             videoswpi: true
@@ -321,7 +332,7 @@ export default class Home extends Component{
 
     /* TERMINAL */
 
-    handleCommandChange = (event) => {       
+    handleCommandChange = (event) => {
         this.setState({
             commandValue: event.target.value
         });
@@ -331,94 +342,94 @@ export default class Home extends Component{
         event.preventDefault();
         const inputspace = document.querySelector('#theInput')
         const commandLine = document.querySelector(".command-box")
-        if(this.state.commandValue === "aemabit run introMars.js"){
-            const showCommand = 
-            `
+        if (this.state.commandValue === "aemabit run introMars.js") {
+            const showCommand =
+                `
                 <div>${this.state.commandValue}</div>
                 <span id="ae-script">aemabit script start</span>
                 <span>Loading browser</span>
                 <span>Update features</span>
                 <span>Happy Journey!</span>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + showCommand
+            commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
                 'https://mars-curiosity-api.herokuapp.com/',
-                '_blank' 
-              );
-        }else if(this.state.commandValue.length <= 0){
-            const forDefault = 
-            `
+                '_blank'
+            );
+        } else if (this.state.commandValue.length <= 0) {
+            const forDefault =
+                `
                 <div className="wrapper-input">
                     <span>user@aemabit</span><span id="client">[client]</span><span id="master">(master)</span><span>$ </span>
                 </div>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + forDefault
-        }else if(this.state.commandValue === "aemabit run introGL.js"){
-            const showCommand = 
-            `
+            commandLine.innerHTML = commandLine.innerHTML + forDefault
+        } else if (this.state.commandValue === "aemabit run introGL.js") {
+            const showCommand =
+                `
                 <div>${this.state.commandValue}</div>
                 <span id="ae-script">aemabit script start</span>
                 <span>Loading browser</span>
                 <span>Update features</span>
                 <span>Happy Journey!</span>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + showCommand
+            commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
                 'https://thegreenlink.herokuapp.com/',
-                '_blank' 
-              );
-        }else if(this.state.commandValue === "aemabit run starWars.js"){
-            const showCommand = 
-            `
+                '_blank'
+            );
+        } else if (this.state.commandValue === "aemabit run starWars.js") {
+            const showCommand =
+                `
                 <div>${this.state.commandValue}</div>
                 <span id="ae-script">aemabit script start</span>
                 <span>Loading browser</span>
                 <span>Update features</span>
                 <span>Happy Journey!</span>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + showCommand
+            commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
                 'https://github.com/aemabit/Swapi-project',
-                '_blank' 
-              );
-        }else if(this.state.commandValue === "aemabit run starWarsJokes.js"){
-            const showCommand = 
-            `
+                '_blank'
+            );
+        } else if (this.state.commandValue === "aemabit run starWarsJokes.js") {
+            const showCommand =
+                `
                 <div>${this.state.commandValue}</div>
                 <span id="ae-script">aemabit script start</span>
                 <span>Loading browser</span>
                 <span>Update features</span>
                 <span>Happy Journey!</span>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + showCommand
+            commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
                 'https://github.com/aemabit/Star-API',
-                '_blank' 
-              );
-        }else if(this.state.commandValue === "aemabit run puppeteer.js"){
-            const showCommand = 
-            `
+                '_blank'
+            );
+        } else if (this.state.commandValue === "aemabit run puppeteer.js") {
+            const showCommand =
+                `
                 <div>${this.state.commandValue}</div>
                 <span id="ae-script">aemabit script start</span>
                 <span>Loading browser</span>
                 <span>Update features</span>
                 <span>Happy Journey!</span>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + showCommand
+            commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
                 'https://github.com/aemabit/Web-Scraping-with-Puppeteer',
-                '_blank' 
-              );
-        }else if(this.state.commandValue === "aemabit eject"){
+                '_blank'
+            );
+        } else if (this.state.commandValue === "aemabit eject") {
             window.location.reload()
-        }else{
-            const commandError = 
-            `
+        } else {
+            const commandError =
+                `
                 <div className="wrapper-input">
                     <span>${this.state.commandValue}: command not found</span>
                 </div>
             `
-            commandLine.innerHTML =  commandLine.innerHTML + commandError
+            commandLine.innerHTML = commandLine.innerHTML + commandError
         }
         inputspace.value = "";
         commandLine.scrollTop = commandLine.scrollHeight
@@ -427,8 +438,51 @@ export default class Home extends Component{
         })
     }
 
-    render(){
-        return(
+    linkValueGL = () => {
+        window.open(
+            'https://thegreenlink.herokuapp.com/',
+            '_blank'
+        )
+    }
+    linkValueMars = () => {
+        window.open(
+            'https://mars-curiosity-api.herokuapp.com/',
+            '_blank'
+        )
+    }
+    linkValuePupp = () => {
+        window.open(
+            'https://github.com/aemabit/Web-Scraping-with-Puppeteer',
+            '_blank'
+        )
+    }
+    linkValueSwapi = () => {
+        window.open(
+            'https://github.com/aemabit/Swapi-project',
+            '_blank'
+        )
+    }
+    linkValueJokes = () => {
+        window.open(
+            'https://github.com/aemabit/Star-API',
+            '_blank'
+        )
+    }
+    linkValueGithub = () => {
+        window.open(
+            'https://github.com/aemabit',
+            '_blank'
+        )
+    }
+    linkValueLinkedin = () => {
+        window.open(
+            'https://www.linkedin.com/in/andres-mejias/',
+            '_blank'
+        )
+    }
+
+    render() {
+        return (
             <div className="container-studio">
                 <div className="title-studio">
                     <span>PORTFOLIO-REACT ANDRES MEJIAS - AEMABIT STUDIO CODE</span>
@@ -450,1034 +504,111 @@ export default class Home extends Component{
                             <i className="fas fa-plus"></i>
                         </div>
                     </div>
-                    <div className="second-lateral-bar hidden">
-                        <div className="container-sample">
-                            <div className="title-oe">
-                                <span>PORTFOLIO-REACT</span>
-                            </div>
-                            <div className="wrapper-portfolio-editor">
-                                <div className="layer client-main" onClick={this.handleSubMenu}>
-                                    <i className="fas fa-angle-down rotate"></i>
-                                    <span>client</span>
-                                </div>
-                                    {
-                                    this.state.activeSubmenu ? (
-                                    <div className="sub-menu">
-                                        <div className="layer api-mars" onClick={this.handleMars}>
-                                            <i className="fas fa-angle-down"></i>
-                                            <span>Mars</span>
-                                        </div>
-                                        <div id="mars" className="sub-container hidden">
-                                            <div id="sub-mars" className="sub-layer" onClick={this.showSnippetMars}>
-                                                <i className="fab fa-js"></i>
-                                                <span>introMars.js</span>
-                                            </div>
-                                            <div className="sub-layer" onClick={this.showVideoMars}>
-                                                <i className="fas fa-play-circle"></i>
-                                                <span>previewMars.ogv</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="layer greenlink" onClick={this.handleGl}>
-                                            <i className="fas fa-angle-down"></i>
-                                            <span>TheGreenLink</span>
-                                        </div>
-                                        <div id="gl" className="sub-container hidden">
-                                            <div className="sub-layer" onClick={this.showSnippetGl}>
-                                                <i className="fab fa-js"></i>
-                                                <span>introGL.js</span>
-                                            </div>
-                                            <div className="sub-layer" onClick={this.showVideoGl}>
-                                                <i className="fas fa-play-circle"></i>
-                                                <span>previewGL.ogv</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="layer st-swapi" onClick={this.handleSwapi}>
-                                            <i className="fas fa-angle-down"></i>
-                                            <span>StarWarsApi-Swapi</span>
-                                        </div>
-                                        <div id="swapi" className="sub-container hidden">
-                                            <div className="sub-layer" onClick={this.showSnippetSwapi}>
-                                                <i className="fab fa-js"></i>
-                                                <span>starWars.js</span>
-                                            </div>
-                                            <div className="sub-layer" onClick={this.showVideoSwapi}>
-                                                <i className="fas fa-play-circle"></i>
-                                                <span>previewSW.ogv</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="layer starwars" onClick={this.handleJokes}>
-                                            <i className="fas fa-angle-down"></i>
-                                            <span>StarWars-Jokes</span>
-                                        </div>
-                                        <div id="jokes" className="sub-container hidden">
-                                            <div className="sub-layer" onClick={this.showSnippetJokes}>
-                                                <i className="fab fa-js"></i>
-                                                <span>starWarsJokes.js</span>
-                                            </div>
-                                            <div className="sub-layer" onClick={this.showVideoJokes}>
-                                                <i className="fas fa-play-circle"></i>
-                                                <span>previewJokes.ogv</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="layer puppeteer" onClick={this.handlePuppeteer}>
-                                            <i className="fas fa-angle-down"></i>
-                                            <span>Scraping-Github</span>
-                                        </div>
-                                        <div id="pupp" className="sub-container hidden">
-                                            <div className="sub-layer" onClick={this.showSnippetPupp}>
-                                                <i className="fab fa-js"></i>
-                                                <span>puppeteer.js</span>
-                                            </div>
-                                            <div className="sub-layer" onClick={this.showVideoPupp}>
-                                                <i className="fas fa-play-circle"></i>
-                                                <span>previewScr.ogv</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                        ) : null
-                                    }
-                                <div className="layer last-layer" onClick={this.showJson}>
-                                    <span className="ae-curly">{`{}`}</span>
-                                    <span>package.json</span>
-                                </div> 
-                                <div className="layer last-layer" onClick={this.showReadme}>
-                                    <i className="fas fa-info-circle"></i>
-                                    <span>README.md</span>
-                                </div>    
-                                <div className="layer last-layer" onClick={this.showEnv}>
-                                    <i className="fas fa-cog"></i>
-                                    <span>.aemabit</span>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+                    <SecondLateralBar
+                        handleSubMenu={this.handleSubMenu}
+                        activeSubmenu={this.state.activeSubmenu}
+                        handleMars={this.handleMars}
+                        showSnippetMars={this.showSnippetMars}
+                        showVideoMars={this.showVideoMars}
+                        handleGl={this.handleGl}
+                        showSnippetGl={this.showSnippetGl}
+                        showVideoGl={this.showVideoGl}
+                        handleSwapi={this.handleSwapi}
+                        showSnippetSwapi={this.showSnippetSwapi}
+                        showVideoSwapi={this.showVideoSwapi}
+                        handleJokes={this.handleJokes}
+                        showSnippetJokes={this.showSnippetJokes}
+                        showVideoJokes={this.showVideoJokes}
+                        handlePuppeteer={this.handlePuppeteer}
+                        showSnippetPupp={this.showSnippetPupp}
+                        showVideoPupp={this.showVideoPupp}
+                        showJson={this.showJson}
+                        showReadme={this.showReadme}
+                        showEnv={this.showEnv}
+                    />
                     <div className="wrapper-screen-terminal">
-                        <div className="bar-active">
-                            <div className="hidden tags-bar readme-view">
-                                <i className="fas fa-info-circle"></i>
-                                <span onClick={this.showReadme}>README.md</span>
-                                <i onClick={this.closeReadme} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar json-view">
-                                <span className="ae-curly">{`{}`}</span>
-                                <span onClick={this.showJson}>package.json</span>
-                                <i onClick={this.closeJson} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar env-view">
-                                <i className="fas fa-cog"></i>
-                                <span onClick={this.showEnv}>.aemabit</span>
-                                <i onClick={this.closeEnv} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-mars">
-                                <i className="fab fa-js"></i>
-                                <span onClick={this.showSnippetMars}>introMars.js</span>
-                                <i onClick={this.closeMars} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-video-mars">
-                                <i className="fas fa-play-circle"></i>
-                                <span onClick={this.showVideoMars}>previewMars.ogv</span>
-                                <i onClick={this.closePlayerMars} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-gl">
-                                <i className="fab fa-js"></i>
-                                <span onClick={this.showSnippetGl}>introGL.js</span>
-                                <i onClick={this.closeGl} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-video-gl">
-                                <i className="fas fa-play-circle"></i>
-                                <span onClick={this.showVideoGl}>previewGL.ogv</span>
-                                <i onClick={this.closePlayerGl} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-swapi">
-                                <i className="fab fa-js"></i>
-                                <span onClick={this.showSnippetSwapi}>starWars.js</span>
-                                <i onClick={this.closeSwapi} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-video-swapi">
-                                <i className="fas fa-play-circle"></i>
-                                <span onClick={this.showVideoSwapi}>previewSW.ogv</span>
-                                <i onClick={this.closePlayerSwapi} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-jokes">
-                                <i className="fab fa-js"></i>
-                                <span onClick={this.showSnippetJokes}>starWarsJokes.js</span>
-                                <i onClick={this.closeJokes} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-video-jokes">
-                                <i className="fas fa-play-circle"></i>
-                                <span onClick={this.showVideoJokes}>previewJokes.ogv</span>
-                                <i onClick={this.closePlayerJokes} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-pupp">
-                                <i className="fab fa-js"></i>
-                                <span onClick={this.showSnippetPupp}>puppeteer.js</span>
-                                <i onClick={this.closePupp} className="fas fa-times"></i>
-                            </div>
-                            <div className="hidden tags-bar tag-video-pupp">
-                                <i className="fas fa-play-circle"></i>
-                                <span onClick={this.showVideoPupp}>previewScr.ogv</span>
-                                <i onClick={this.closePlayerPupp} className="fas fa-times"></i>
-                            </div>
-                        </div> 
-                        <div className="box-screen">   
-                            <div>
-                                <div id="screen-mars" className="screen hidden">
-                                    {   
-                                        this.state.renderMsgMars ? (
-                                            <div className="wrapper-screen">
-                                            <div className="numbers">
-                                            <Typist cursor={{ hideWhenDone: true }}>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>1</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>2</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>3</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>4</div>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>5</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>6</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>7</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>8</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>9</div>                             	
-                                                    <Typist.Delay ms={500} />
-                                                    <div>10</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>11</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>12</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>13</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>14</div>
-                                                </Typist>
-                                                </div>
-                                            <Typist 
-                                                avgTypingDelay={20} 
-                                                cursor={{ hideWhenDone: true }}
-                                            >
-                                                <div className="code-snippet">
-                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
-                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
-                                                    <span><span id="blue">import</span> MarsProject from <span id="yellow">'./src/NasaApi'</span></span><br></br>
-                                                    <br></br>
-                                                    <br></br>
-                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
-                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<MarsProject />`}    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
-                                                    <span id="yellow">{`)`}                                                       </span><br></br>
-                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
-                                                </div>
-                                            </Typist>
-                                        </div>
-                                        ) :null
-                                    }
-                                </div>
-                                <div id="player-mars" className="player hidden">
-                                    <div>
-                                        <span> previewMars.ogv is not displayed in the editor because it is either binary or uses an unsupported text encoding. 
-                                            <span className="video-mars" onClick={this.showMarsVideo}>Do you want to open it anyway?</span>
-                                        </span>
-                                    </div>
-                                    <div className="container-player">
-                                        {
-                                            this.state.videoMars ? (
-                                                <div className="end-video">
-                                                    <ReactPlayer
-                                                        className='react-player'
-                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/mars.ogv"
-                                                        width='50%'
-                                                        height='50%'
-                                                        controls={true}
-                                                    />
-                                                </div>                                            
-                                            ) : null
-                                        }
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div id="screen-greenlink" className="screen hidden">
-                                {   
-                                        this.state.renderMsgGl ? (
-                                        <div className="wrapper-screen">
-                                            <div className="numbers">
-                                            <Typist cursor={{ hideWhenDone: true }}>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>1</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>2</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>3</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>4</div>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>5</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>6</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>7</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>8</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>9</div>                             	
-                                                    <Typist.Delay ms={500} />
-                                                    <div>10</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>11</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>12</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>13</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>14</div>
-                                                </Typist>
-                                                </div>
-                                            <Typist 
-                                                avgTypingDelay={20} 
-                                                cursor={{ hideWhenDone: true }}
-                                            >
-                                                <div className="code-snippet">
-                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
-                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
-                                                    <span><span id="blue">import</span> TheGreenLink from <span id="yellow">'./src/TheGreenLink'</span></span><br></br>
-                                                    <br></br>
-                                                    <br></br>
-                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
-                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<TheGreenLink />`}    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
-                                                    <span id="yellow">{`)`}                                                       </span><br></br>
-                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
-                                                </div>
-                                            </Typist>
-                                        </div>
-                                        ) :null
-                                    }
-                                </div>
-                                <div id="player-greenlink" className="player hidden">
-                                    <div>
-                                        <span> previewGL.ogv is not displayed in the editor because it is either binary or uses an unsupported text encoding. 
-                                            <span className="video-thegreenlink" onClick={this.showTglVideo}>Do you want to open it anyway?</span>
-                                        </span>
-                                    </div>
-                                    <div className="container-player">
-                                        {
-                                            this.state.videothgl ? (
-                                                <div className="end-video">
-                                                    <ReactPlayer
-                                                        className='react-player'
-                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/thegreenlink.mov"
-                                                        width='50%'
-                                                        height='50%'
-                                                        controls={true}
-                                                    />
-                                                </div>
-                                            ) : null 
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div id="screen-swapi" className="screen hidden">
-                                {   
-                                        this.state.renderMsgSwapi ? (
-                                            <div className="wrapper-screen">
-                                            <div className="numbers">
-                                            <Typist cursor={{ hideWhenDone: true }}>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>1</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>2</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>3</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>4</div>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>5</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>6</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>7</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>8</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>9</div>                             	
-                                                    <Typist.Delay ms={500} />
-                                                    <div>10</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>11</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>12</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>13</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>14</div>
-                                                </Typist>
-                                                </div>
-                                            <Typist 
-                                                avgTypingDelay={20} 
-                                                cursor={{ hideWhenDone: true }}
-                                            >
-                                                <div className="code-snippet">
-                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
-                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
-                                                    <span><span id="blue">import</span> SwapiProject from <span id="yellow">'./src/SwapiApi'</span></span><br></br>
-                                                    <br></br>
-                                                    <br></br>
-                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
-                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<SwapiProject />`}    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
-                                                    <span id="yellow">{`)`}                                                       </span><br></br>
-                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
-                                                </div>
-                                            </Typist>
-                                        </div>
-                                        ) :null
-                                    }
-                                </div>
-                                <div id="player-swapi" className="player hidden">
-                                    <div>
-                                        <span> previewSW.ogv is not displayed in the editor because it is either binary or uses an unsupported text encoding. 
-                                            <span className="video-swapi" onClick={this.showSwapiVideo}>Do you want to open it anyway?</span>
-                                        </span>
-                                    </div>
-                                    <div className="container-player">
-                                        {
-                                            this.state.videoswpi ? (
-                                                <div className="end-video">
-                                                    <ReactPlayer
-                                                        className='react-player'
-                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/swapi.ogv"
-                                                        width='50%'
-                                                        height='50%'
-                                                        controls={true}
-                                                    />
-                                                </div>
-                                            ): null
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div id="screen-st-jokes" className="screen hidden">
-                                {   
-                                        this.state.renderMsgJokes ? (
-                                            <div className="wrapper-screen">
-                                            <div className="numbers">
-                                            <Typist cursor={{ hideWhenDone: true }}>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>1</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>2</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>3</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>4</div>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>5</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>6</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>7</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>8</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>9</div>                             	
-                                                    <Typist.Delay ms={500} />
-                                                    <div>10</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>11</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>12</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>13</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>14</div>
-                                                </Typist>
-                                                </div>
-                                            <Typist 
-                                                avgTypingDelay={20} 
-                                                cursor={{ hideWhenDone: true }}
-                                            >
-                                                <div className="code-snippet">
-                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
-                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
-                                                    <span><span id="blue">import</span> StarWarsProject from <span id="yellow">'./src/STWJokesApi'</span></span><br></br>
-                                                    <br></br>
-                                                    <br></br>
-                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
-                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<StarWarsProject />`}    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
-                                                    <span id="yellow">{`)`}                                                       </span><br></br>
-                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
-                                                </div>
-                                            </Typist>
-                                        </div>
-                                        ) :null
-                                    }
-                                </div>
-                                <div id="player-st-jokes" className="player hidden">
-                                    <div>
-                                        <span> previewJokes.ogv is not displayed in the editor because it is either binary or uses an unsupported text encoding. 
-                                            <span className="video-jokes" onClick={this.showJokesVideo}>Do you want to open it anyway?</span>
-                                        </span>
-                                    </div>
-                                    <div className="container-player">
-                                        {
-                                            this.state.videojoke ? (
-                                                <div className="end-video">
-                                                    <ReactPlayer
-                                                        className='react-player'
-                                                        url="https://aemabitfolder.sfo2.digitaloceanspaces.com/starwarsjokes.ogv"
-                                                        width='50%'
-                                                        height='50%'
-                                                        controls={true}
-                                                    />
-                                                </div>
-                                            ) : null
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div id="screen-puppeteer" className="screen hidden">
-                                {   
-                                        this.state.renderMsgGithub? (
-                                            <div className="wrapper-screen">
-                                            <div className="numbers">
-                                            <Typist cursor={{ hideWhenDone: true }}>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>1</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>2</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>3</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>4</div>
-                                                    <Typist.Delay ms={0} />
-                                                    <div>5</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>6</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>7</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>8</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>9</div>                             	
-                                                    <Typist.Delay ms={500} />
-                                                    <div>10</div>
-                                                    <Typist.Delay ms={500} />
-                                                    <div>11</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>12</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>13</div>
-                                                    <Typist.Delay ms={700} />
-                                                    <div>14</div>
-                                                </Typist>
-                                                </div>
-                                            <Typist 
-                                                avgTypingDelay={20} 
-                                                cursor={{ hideWhenDone: true }}
-                                            >
-                                                <div className="code-snippet">
-                                                    <span><span id="blue">import</span> React from <span id="yellow">'react'</span></span><br></br>
-                                                    <span><span id="blue">import</span> <span id="yellow">'./App.css'</span></span><br></br>
-                                                    <span><span id="blue">import</span> ScrapingGithub from <span id="yellow">'./src/NodeAndPuppeteer'</span></span><br></br>
-                                                    <br></br>
-                                                    <br></br>
-                                                    <span id="blue">const App = <span id="yellow">{` () `}</span>=><span id="yellow">{`(`}</span></span> <br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`return (`}                                    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`<div className='container'>`}     </span><br></br>
-                                                    <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`<ScrapingGithub />`}    </span><br></br>
-                                                    <span id="red">&nbsp;&nbsp;&nbsp;&nbsp;{`</div>`}                          </span><br></br>
-                                                    <span id="blue">&nbsp;&nbsp;{`)`}                                           </span><br></br>
-                                                    <span id="yellow">{`)`}                                                       </span><br></br>
-                                                    <span>export default <span id="yellow">App</span>                 </span><br></br>
-                                                </div>
-                                            </Typist>
-                                        </div>
-                                        ) :null
-                                    }
-                                </div>
-                                <div id="player-puppeteer" className="player hidden">
-                                    <div>
-                                        <span> previewScr.ogv is not displayed in the editor because it is either binary or uses an unsupported text encoding. 
-                                            <span className="video-puppeteer" onClick={this.showGithubVideo}>Do you want to open it anyway?</span>
-                                        </span>
-                                    </div>
-                                    <div className="container-player">
-                                        {
-                                            this.state.videogith ? (
-                                            <div className="end-video">
-                                                <ReactPlayer
-                                                    className='react-player'
-                                                    url="https://aemabitfolder.sfo2.digitaloceanspaces.com/scrapinggithub.ogv"
-                                                    width='50%'
-                                                    height='50%'
-                                                    controls={true}
-                                                    muted={true}
-                                                />
-                                            </div>
-                                            ) : null
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div id="readme" className="screen hidden">
-                                    <div className="wrapper-readme">
-                                        <div className="numbers">
-                                            <span>1</span>
-                                            <span>2</span>
-                                            <span>3</span>
-                                            <span>4</span>
-                                            <span>5</span>
-                                            <span>6</span>
-                                            <span>7</span>
-                                            <span>8</span>
-                                            <span>9</span>
-                                            <span>10</span>
-                                            <span>11</span>
-                                            <span>12</span>
-                                            <span>13</span>
-                                            <span>14</span>
-                                            <span>15</span>
-                                            <span>16</span>
-                                            <span>17</span>
-                                            <span>18</span>
-                                            <span>19</span>
-                                            <span>20</span>
-                                            <span>21</span>
-                                            <span>22</span>
-                                            <span>23</span>
-                                            <span>24</span>
-                                            <span>25</span>
-                                            <span>26</span>
-                                            <span>27</span>
-                                            <span>28</span>
-                                            <span>29</span>
-                                            <span>30</span>
-                                            <span>31</span>
-                                            <span>32</span>
-                                            <span>33</span>
-                                            <span>34</span>
-                                            <span>35</span>
-                                            <span>36</span>
-                                            <span>37</span>
-                                            <span>38</span>
-                                            <span>39</span>
-                                            <span>40</span>
-                                            <span>41</span>
-                                            <span>42</span>
-                                            <span>43</span>
-                                            <span>44</span>
-                                            <span>45</span>
-                                            <span>46</span>
-                                            <span>47</span>
-                                            <span>48</span>
-                                            <span>49</span>
-                                            <span>50</span>
-                                            <span>51</span>
-                                            <span>52</span>
-                                            <span>53</span>
-                                            <span>54</span>
-                                            <span>55</span>
-                                        </div> 
-                                        <div className="text-readme">
-                                            <span>This project was bootstrapped with <span id="blue">[Create ANDRES MEJIAS (Aemabit) App]</span><span id="orange">(https://github.com/aemabit)</span>.</span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">## Get more information about the maker of this site...</span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>Linkedin: <span id="blue">[https://www.linkedin.com/in/andres-mejias/]</span><span id="orange">(https://www.linkedin.com/in/andres-mejias/)</span></span>
-                                            <br></br>
-                                            <span>Gmail: <span id="blue">[aemabit@gmail.com]</span><span id="orange">(aemabit@gmail.com)</span></span>
-                                            <br></br>
-                                            <span>Github: <span id="blue">[https://github.com/aemabit]</span><span id="orange">(https://github.com/aemabit)</span></span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">## Available Scripts</span>
-                                            <br></br>
-                                            <span>In the project directory, you can run:</span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit run introMars.js </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>
-                                                Runs the app in the development mode.<br></br>
-                                                Open <span id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser. 
-                                                <br></br>
-                                                <br></br>
-                                                The page will reload if you make edits.<br />
-                                                You will also see any lint errors in the console.
-                                            </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit run introGL.js </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>
-                                                Runs the app in the development mode.<br></br>
-                                                Open <span id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser. 
-                                                <br></br>
-                                                <br></br>
-                                                The page will reload if you make edits.<br />
-                                                You will also see any lint errors in the console.
-                                            </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit run starWars.js </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>
-                                                Runs the app in the development mode.<br></br>
-                                                Open <span id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser. 
-                                                <br></br>
-                                                <br></br>
-                                                The page will reload if you make edits.<br />
-                                                You will also see any lint errors in the console.
-                                            </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit run starWarsJokes.js </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>
-                                                Runs the app in the development mode.<br></br>
-                                                Open <span id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser. 
-                                                <br></br>
-                                                <br></br>
-                                                The page will reload if you make edits.<br />
-                                                You will also see any lint errors in the console.
-                                            </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit run puppeteer.js </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span>
-                                                Runs the app in the development mode.<br></br>
-                                                Open <span id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser. 
-                                                <br></br>
-                                                <br></br>
-                                                The page will reload if you make edits.<br />
-                                                You will also see any lint errors in the console.
-                                            </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="orange">### aemabit eject </span>
-                                            <br></br>
-                                            <br></br>
-                                            <span id="red">**Note: this is a one-way operation. Once you `eject`, you can’t go back!**</span>
-                                            <br></br>
-                                            <br></br>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                            <div id="pkg-json"className="screen hidden">
-                                <div className="wrapper-json">
-                                <div className="numbers">
-                                        <span>1</span>
-                                        <span>2</span>
-                                        <span>3</span>
-                                        <span>4</span>
-                                        <span>5</span>
-                                        <span>6</span>
-                                        <span>7</span>
-                                        <span>8</span>
-                                        <span>9</span>
-                                        <span>10</span>
-                                        <span>11</span>
-                                        <span>12</span>
-                                        <span>13</span>
-                                        <span>14</span>
-                                        <span>15</span>
-                                        <span>16</span>
-                                        <span>17</span>
-                                        <span>18</span>
-                                        <span>19</span>
-                                        <span>20</span>
-                                        <span>21</span>
-                                        <span>22</span>
-                                        <span>23</span>
-                                        <span>24</span>
-                                        <span>25</span>
-                                        <span>26</span>
-                                        <span>27</span>
-                                        <span>28</span>
-                                        <span>29</span>
-                                        <span>30</span>
-                                        <span>31</span>
-                                        <span>32</span>
-                                        <span>33</span>
-                                        <span>34</span>
-                                        <span>35</span>
-                                        <span>36</span>
-                                        <span>37</span>
-                                        <span>38</span>
-                                        <span>39</span>
-                                        <span>40</span>
-                                        <span>41</span>
-                                        <span>42</span>
-                                        <span>43</span>
-                                        <span>44</span>
-                                        <span>45</span>
-                                        <span>46</span>
-                                        <span>47</span>
-                                        <span>48</span>
-                                        <span>49</span>
-                                    </div>
-                                    <div className="json-text">
-                                        <span id="orange">{`{`}</span>
-                                        <span id="blue">&nbsp;&nbsp;{`"author"`}<span id="orange">{`"Andres Mejias",`}</span></span>                                
-                                        <span id="blue">&nbsp;&nbsp;{`"name":`}<span id="orange">{`"client",` }</span></span>                       
-                                        <span id="blue">&nbsp;&nbsp;{`"version":`}<span id="orange">{`"0.1.0",`}</span></span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"private":`}<span id="orange">{`true,`}</span></span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"dependencies":`}<span id="blue">{`{`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"react":`}<span id="yellow">{`"^16.12.0",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"express":`}<span id="yellow">{`"^4.16.3",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{  `"react-dom":`}<span id="yellow">{`"^16.12.0",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"connect-history-api-fallback":`}<span id="yellow">{` "^1.5.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"copy-webpack-plugin":`}<span id="yellow">{` "^4.5.1",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"css-loader":`}<span id="yellow">{` "^0.28.11",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"express":`}<span id="yellow">{` "^4.16.3",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"extract-text-webpack-plugin":`}<span id="yellow">{` "^4.0.0-beta.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"html-webpack-plugin":`}<span id="yellow">{` "^3.1.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"mongoose":`}<span id="yellow">{` "^5.0.11",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"node-sass": `}<span id="yellow">{`"^4.7.2",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"nodemon":`}<span id="yellow">{` "^1.17.2",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"postcss-loader":`}<span id="yellow">{` "^2.1.3",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react":`}<span id="yellow">{` "^16.2.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-dom":`}<span id="yellow">{` "^16.2.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-hot-loader":`}<span id="yellow">{` "^4.0.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-router":`}<span id="yellow">{` "^4.2.0",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"react-router-dom":`}<span id="yellow">{` "^4.2.2",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"sass-loader":`}<span id="yellow">{` "^6.0.7",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"style-loader":`}<span id="yellow">{` "^0.20.3",`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{`"webpack":`}<span id="yellow">{` "^4.2.0",`}</span></span>
-
-                                        <span id="blue">&nbsp;&nbsp;{`},`}</span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"scripts":`}<span id="blue">{`{`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run introMars.js",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run introGL.js",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run starWars.js",`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run starWarsJokes.js"`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "start":`}<span id="yellow">{`"aemabit run puppeteer.js"`}</span></span>
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "eject":`}<span id="yellow">{`"aemabit eject"`}</span></span>
-                                        <span id="blue">&nbsp;&nbsp;{`},`}</span> 
-                                        <span id="blue">&nbsp;&nbsp;{`"browserslist":`}<span id="blue">{`{`}</span></span> 
-                                        <span id="orange">&nbsp;&nbsp;&nbsp;&nbsp;{ ` "production":`}<span id="blue">{`[`}</span></span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` ">0.2%",`}</span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not dead",`}</span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{   ` "not op_mini all"`}</span> 
-                                        <span id="blue">&nbsp;&nbsp;{ `],`}</span> 
-                                        <span id="blue">&nbsp;&nbsp;{  `"development":`}<span id="blue">{`[`}</span></span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 chrome version",`}</span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 firefox version",`}</span> 
-                                        <span id="yellow">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  `"last 1 safari version"`}</span> 
-                                        <span id="blue">&nbsp;&nbsp;{  `]`}</span> 
-                                        <span id="orange">{`}`}</span> 
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div id="aemabit-env" className="screen hidden">
-                                <div className="wrapper-json">
-                                <div className="numbers">
-                                        <span>1</span>
-                                        <span>2</span>
-                                        <span>3</span>
-                                        <span>4</span>
-                                        <span>5</span>
-                                        <span>6</span>
-                                        <span>7</span>
-                                        <span>8</span>
-                                        <span>9</span>
-                                        <span>10</span>
-                                        <span>11</span>
-                                        <span>12</span>
-                                        <span>13</span>
-                                        <span>14</span>
-                                        <span>15</span>
-                                        <span>16</span>
-                                        <span>17</span>
-                                        <span>18</span>
-                                        <span>19</span>
-                                        <span>20</span>
-                                        <span>21</span>
-                                        <span>22</span>
-                                        <span>23</span>
-                                        <span>24</span>
-                                        <span>25</span>
-                                        <span>26</span>
-                                        <span>27</span>
-                                        <span>28</span>
-                                        <span>29</span>
-                                        <span>30</span>
-                                        <span>31</span>
-                                        <span>32</span>
-                                        <span>33</span>
-                                    </div>
-                                    <div className="env-content">
-                                        <span>Hi, my name is <span className="sm-ttl">Andres Mejias</span></span>
-                                        <span className="change sm-ttl">&nbsp;&nbsp;I design and develop webapps</span>
-                                        <br></br>
-                                        <br></br>
-                                        <span className="sm-ttl">{`// I'm ambitious and love new challenges :)`}</span>
-                                        <span className="sm-ttl">{`// My vast variety of skills is continuously expanding.`}</span>
-                                        <br></br>
-                                        <br></br>
-                                        <span className="sm-ttl">Education {`= [`} </span>
-                                        <span id="yellow">&nbsp;&nbsp;{`{`} '2019' : Wyncode Academy - Full Stack Web Developer {`},`} </span>
-                                        <span id="yellow">&nbsp;&nbsp;{`{`} '2015' : Technological University Institute Americo Vespucio - Information Technology {`}`} </span>
-                                        <span id="red">{`]`}</span>
-                                        <br></br>
-                                        <br></br>
-                                        <span className="sm-ttl">{`Skills = [`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Passport.js',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'HTML/CSS/JS',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Node.js',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'React.js',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Express.js',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'MongoDB',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'PostgreSQL',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Puppeteer',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Bootstrap',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'npm/yarn',  `}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'GIT',`}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Ruby on Rails', `}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Photoshop', `}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'Illustrator', `}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'After Effects', `}</span>
-                                        <span id="yellow">&nbsp;&nbsp;{`'UX/UI'`}</span>
-                                        <span id="red">{`] `}</span>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        <div className="wrapper-welcome">
-                        <div className="container-welcome screen">
-                            <div className="welcome-to">
-                                <span>Welcome to Aemabit Studio Code</span>
-                                <h4>by: Andres Mejias</h4>
-                                <img src="https://aemabitfolder.sfo2.digitaloceanspaces.com/MejiasAndres.png" alt="Andres Mejias"/>
-                            </div>
-                            <div className="command-ref">
-                                <span>Open and Close Terminal</span>
-                                    <div className="guideC">
-                                        <span className="simbol">Ctrl</span> <span>+</span>
-                                        <span className="simbol">Shift</span> <span>+</span>
-                                        <span className="simbol">~</span>
-                                    </div>
-                            </div>
-                            <div className="command-ref">
-                                <span>Open Explorer Nav</span>
-                                <div className="guideC">
-                                    <span className="simbol">Ctrl</span> <span>+</span>
-                                    <span className="simbol">Alt</span> <span>+</span>
-                                    <span className="simbol">O</span> 
-                                </div>
-                            </div>
-                            <div className="command-ref">
-                                <span>Open Andres Mejias Github</span>
-                                    <div className="guideC">
-                                        <span className="simbol">Ctrl</span> <span>+</span>
-                                        <span className="simbol">Alt</span> <span>+</span>
-                                        <span className="simbol">G</span> 
-                                    </div>
-                            </div>
-                            <div className="command-ref">
-                                <span>Open Andres Mejias Linkedin</span>
-                                    <div className="guideC">
-                                        <span className="simbol">Ctrl</span> <span>+</span>
-                                        <span className="simbol">Alt</span> <span>+</span>
-                                        <span className="simbol">L</span> 
-                                    </div>
-                            </div>
-                        </div>   
+                        <ActiveBar
+                            showReadme={this.showReadme}
+                            closeReadme={this.closeReadme}
+                            showJson={this.showJson}
+                            closeJson={this.closeJson}
+                            showEnv={this.showEnv}
+                            closeEnv={this.closeEnv}
+                            showSnippetMars={this.showSnippetMars}
+                            closeMars={this.closeMars}
+                            showVideoMars={this.showVideoMars}
+                            closePlayerMars={this.closePlayerMars}
+                            showSnippetGl={this.showSnippetGl}
+                            closeGl={this.closeGl}
+                            showVideoGl={this.showVideoGl}
+                            closePlayerGl={this.closePlayerGl}
+                            showSnippetSwapi={this.showSnippetSwapi}
+                            closeSwapi={this.closeSwapi}
+                            showVideoSwapi={this.showVideoSwapi}
+                            closePlayerSwapi={this.closePlayerSwapi}
+                            showSnippetJokes={this.showSnippetJokes}
+                            closeJokes={this.closeJokes}
+                            showVideoJokes={this.showVideoJokes}
+                            closePlayerJokes={this.closePlayerJokes}
+                            showSnippetPupp={this.showSnippetPupp}
+                            closePupp={this.closePupp}
+                            showVideoPupp={this.showVideoPupp}
+                            closePlayerPupp={this.closePlayerPupp}
+                        />
+                        <div className="box-screen">
+                            <Mars
+                                renderMsgMars={this.state.renderMsgMars}
+                                showMarsVideo={this.showMarsVideo}
+                                videoMars={this.state.videoMars}
+                            />
+                            <GreenLink
+                                renderMsgGl={this.state.renderMsgGl}
+                                showTglVideo={this.showTglVideo}
+                                videothgl={this.state.videothgl}
+                            />
+                            <Swapi
+                                renderMsgSwapi={this.state.renderMsgSwapi}
+                                showSwapiVideo={this.showSwapiVideo}
+                                videoswpi={this.state.videoswpi}
+                            />
+                            <Jokes
+                                renderMsgJokes={this.state.renderMsgJokes}
+                                showJokesVideo={this.showJokesVideo}
+                                videojoke={this.state.videojoke}
+                            />
+                            <Scraping
+                                renderMsgGithub={this.state.renderMsgGithub}
+                                showGithubVideo={this.showGithubVideo}
+                                videogith={this.state.videogith}
+                            />
+                            <MyReadme
+                                linkValueGithub = {this.linkValueGithub}
+                                linkValueLinkedin = {this.linkValueLinkedin}
+                                linkValueMars = {this.linkValueMars}
+                                linkValueGL = {this.linkValueGL}
+                                linkValueSwapi = {this.linkValueSwapi}
+                                linkValueJokes = {this.linkValueJokes}
+                                linkValuePupp = {this.linkValuePupp}
+                            />
+                            <MyJson />
+                            <MyEnv />
+                            <Welcome />
                         </div>
-                    </div>
-                        {
-                                this.state.terminal? (
-                        <div className="box-terminal">
-                                
-                            <div className="bar-console">
-                                <div className="selector-terminal">
-                                    <span>TERMINAL</span>
-                                </div>
-                                <div className="end-terminal">
-                                    <div className="box-node">
-                                        <span>1:node</span>
-                                    </div>
-                                    <div className="kill-terminal" onClick={this.clearTerminal}>
-                                        <i className="fas fa-trash-alt"></i>
-                                    </div>
-                                    <div className="close-terminal" onClick={this.closeTerminal}>
-                                        <i className="far fa-times-circle"></i>
-                                    </div>
-                                </div>
-                            </div>
-                                <div className="command-box"></div>
-                            <div className="container-input">
-                                <div className="wrapper-input">
-                                    <form id="command-space" onSubmit={this.submitCommand}>
-                                    <span>user@aemabit</span><span>[client]</span><span>(master)</span><span>$ </span>
-                                    <input 
-                                        autoComplete="off" 
-                                        type="text" 
-                                        id="theInput" 
-                                        autoCorrect="off" 
-                                        value={this.state.commandValue}
-                                        onChange = {this.handleCommandChange}
-                                        spellCheck="false"
-                                    />
-                                    </form>
-                                </div>
-                            </div>
-                            
-                        </div>
-                                ):null
-                            }
-                    
+                        <MyTerminal
+                            terminal={this.state.terminal}
+                            clearTerminal={this.clearTerminal}
+                            closeTerminal={this.closeTerminal}
+                            submitCommand={this.submitCommand}
+                            commandValue={this.state.commandValue}
+                            handleCommandChange={this.handleCommandChange}
+                        />
                     </div>
                 </div>
             </div>
         )
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         document.addEventListener("keydown", this.handleChange)
     }
 
