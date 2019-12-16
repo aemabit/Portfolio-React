@@ -81,7 +81,7 @@ const MyReadme = props => {
                         <span>In the project directory, you can run:</span>
                         <br></br>
                         <br></br>
-                        <span id="orange">### aemabit run introMars.js </span>
+                        <span id="orange">### aemabit introMars.js </span>
                         <br></br>
                         <br></br>
                         <span>
@@ -94,7 +94,7 @@ const MyReadme = props => {
                         </span>
                         <br></br>
                         <br></br>
-                        <span id="orange">### aemabit run introGL.js </span>
+                        <span id="orange">### aemabit introGL.js </span>
                         <br></br>
                         <br></br>
                         <span>
@@ -107,7 +107,7 @@ const MyReadme = props => {
                         </span>
                         <br></br>
                         <br></br>
-                        <span id="orange">### aemabit run starWars.js </span>
+                        <span id="orange">### aemabit starWars.js </span>
                         <br></br>
                         <br></br>
                         <span>
@@ -120,7 +120,7 @@ const MyReadme = props => {
                         </span>
                         <br></br>
                         <br></br>
-                        <span id="orange">### aemabit run starWarsJokes.js </span>
+                        <span id="orange">### aemabit starWarsJokes.js </span>
                         <br></br>
                         <br></br>
                         <span>
@@ -133,7 +133,7 @@ const MyReadme = props => {
                         </span>
                         <br></br>
                         <br></br>
-                        <span id="orange">### aemabit run puppeteer.js </span>
+                        <span id="orange">### aemabit puppeteer.js </span>
                         <br></br>
                         <br></br>
                         <span>

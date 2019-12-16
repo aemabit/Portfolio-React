@@ -528,3 +528,84 @@ input[type="text"]#theInput:focus {
 .point{
     cursor: pointer;
 }
+
+.block-screen-info {
+    display: none;
+}
+
+.info-command-terminal {
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    bottom: 100px;
+    left: 75px;
+    animation: blink 3s infinite;
+}
+
+@keyframes blink {  
+    0% , 100% { opacity: 0.9; }
+    50% { opacity: 0.3; }
+}
+
+@media only screen and (max-device-width: 1380px) {
+    .box-terminal {
+        height: 55%;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+
+        .container-studio{
+            display: none;
+        }
+
+        .block-screen-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgb(28, 28, 28);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .info-block-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 250px;
+            width: 80%;
+            text-align: center;
+            color: rgba(202, 202, 202, 0.897);
+        }
+
+        .info-block-screen span:nth-child(1){
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .info-block-screen span:nth-child(2),
+        .info-block-screen span:nth-child(3){
+            font-size: 20px;
+            margin: 5px;
+        }
+
+        .info-block-screen span:nth-child(4){
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .info-block-screen span:nth-child(5) {
+            margin-top: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            padding: 10px;
+            background-color: rgba(63, 63, 63, 0.75);
+        }
+
+    }

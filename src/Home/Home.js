@@ -31,7 +31,7 @@ export default class Home extends Component {
         activeSubmenu: true,
         commandValue: '',
         code: [],
-        terminal: true
+        terminal: true,
     }
 
     handleChange = (evt) => {
@@ -342,7 +342,7 @@ export default class Home extends Component {
         event.preventDefault();
         const inputspace = document.querySelector('#theInput')
         const commandLine = document.querySelector(".command-box")
-        if (this.state.commandValue === "aemabit run introMars.js") {
+        if (this.state.commandValue === "aemabit introMars.js") {
             const showCommand =
                 `
                 <div>${this.state.commandValue}</div>
@@ -364,7 +364,7 @@ export default class Home extends Component {
                 </div>
             `
             commandLine.innerHTML = commandLine.innerHTML + forDefault
-        } else if (this.state.commandValue === "aemabit run introGL.js") {
+        } else if (this.state.commandValue === "aemabit introGL.js") {
             const showCommand =
                 `
                 <div>${this.state.commandValue}</div>
@@ -378,7 +378,7 @@ export default class Home extends Component {
                 'https://thegreenlink.herokuapp.com/',
                 '_blank'
             );
-        } else if (this.state.commandValue === "aemabit run starWars.js") {
+        } else if (this.state.commandValue === "aemabit starWars.js") {
             const showCommand =
                 `
                 <div>${this.state.commandValue}</div>
@@ -392,7 +392,7 @@ export default class Home extends Component {
                 'https://github.com/aemabit/Swapi-project',
                 '_blank'
             );
-        } else if (this.state.commandValue === "aemabit run starWarsJokes.js") {
+        } else if (this.state.commandValue === "aemabit starWarsJokes.js") {
             const showCommand =
                 `
                 <div>${this.state.commandValue}</div>
@@ -406,7 +406,7 @@ export default class Home extends Component {
                 'https://github.com/aemabit/Star-API',
                 '_blank'
             );
-        } else if (this.state.commandValue === "aemabit run puppeteer.js") {
+        } else if (this.state.commandValue === "aemabit puppeteer.js") {
             const showCommand =
                 `
                 <div>${this.state.commandValue}</div>
@@ -483,6 +483,7 @@ export default class Home extends Component {
 
     render() {
         return (
+            <>
             <div className="container-studio">
                 <div className="title-studio">
                     <span>PORTFOLIO-REACT ANDRES MEJIAS - AEMABIT STUDIO CODE</span>
@@ -605,6 +606,16 @@ export default class Home extends Component {
                     </div>
                 </div>
             </div>
+            <div className="block-screen-info">
+                <div className="info-block-screen">
+                    <span><i className="fas fa-exclamation"></i>Oops...</span>
+                    <span>I am working on this resolution...</span>
+                    <span>AEMABIT STUDIO CODE only works in resolutions 1280px or higer</span>
+                    <span>More info...</span>
+                    <span>Get in Touch</span>
+                </div>
+            </div>
+            </>
         )
     }
 

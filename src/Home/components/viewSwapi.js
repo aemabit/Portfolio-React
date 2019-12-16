@@ -61,6 +61,12 @@ const Swapi = props => {
                             <span>export default <span id="yellow">App</span>                 </span><br></br>
                         </div>
                     </Typist>
+                    <div className="info-command-terminal">
+                            <span>{`/****************************************`}</span><br></br>
+                            <span>use the terminal and type the command</span><br></br>
+                            <span id="red">aemabit starWars.js</span><br></br>
+                        <span>{`****************************************/`}</span><br></br>                     
+                    </div>
                 </div>
                 ) :null
             }
