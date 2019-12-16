@@ -86,7 +86,7 @@ const MyReadme = props => {
                         <br></br>
                         <span>
                             Runs the app in the development mode.<br></br>
-                            Open <span className="point" onClick={props.linkValueMars} id="blue">[https://mars-curiosity-api.herokuapp.com/]</span><span className="point" onClick={props.linkValueMars} id="orange">(https://mars-curiosity-api.herokuapp.com/)</span> to view in the browser.
+                            Open <span className="point" onClick={props.linkValueMars} id="blue">[https://mars.aemabit.com]</span><span className="point" onClick={props.linkValueMars} id="orange">(https://mars.aemabit.com)</span> to view in the browser.
                             <br></br>
                             <br></br>
                             The page will reload if you make edits.<br />

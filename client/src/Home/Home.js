@@ -353,7 +353,7 @@ export default class Home extends Component {
             `
             commandLine.innerHTML = commandLine.innerHTML + showCommand
             window.open(
-                'https://mars-curiosity-api.herokuapp.com/',
+                'https://mars.aemabit.com',
                 '_blank'
             );
         } else if (this.state.commandValue.length <= 0) {
