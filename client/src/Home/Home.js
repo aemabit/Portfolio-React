@@ -446,7 +446,7 @@ export default class Home extends Component {
     }
     linkValueMars = () => {
         window.open(
-            'https://mars-curiosity-api.herokuapp.com/',
+            'https://mars.aemabit.com',
             '_blank'
         )
     }
